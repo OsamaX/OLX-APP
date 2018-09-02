@@ -1,0 +1,325 @@
+nav {
+    background-color: #6ea1ee;
+}
+
+nav .sidenav-trigger {
+    float: right;
+}
+
+
+#cat-list li {
+    display: inline;
+    padding-right: 30px;
+    font-size: 30px;
+}
+
+#user-reg-head {
+    text-align: center;
+}
+
+#login-form {
+    margin-top: 50px;
+}
+
+#register-form {
+    margin-top: 30px;
+    padding-bottom: 20px;
+    padding-top: 25px;
+    padding-left: 30px;
+    padding-right: 30px;
+}
+
+.login-btn {
+    margin-bottom: 10px;
+}
+
+@media screen and (max-width: 600px) {
+    .register-row {
+        margin-bottom: 0px!important;
+    }
+
+    #login-form {
+        margin-top: 0px;
+    }
+
+    #register-form {
+        margin-bottom: 0px;
+    }
+
+}
+
+.modal {
+    width: 80%!important;
+    max-height: 90%!important;
+}
+
+@media screen and (max-width: 992px) {
+    .prof-icon {
+        margin-right: 5px!important;
+    }
+
+    .modal {
+        width: 100%!important;
+        max-height: 100%!important;
+    }
+}
+
+
+
+.preloader-wrapper {
+    top: 250px;
+}
+
+.preloader-wrapper.big {
+    width: 74px;
+    height: 74px;
+}
+
+.prof-icon {
+    display: inline!important;
+}
+
+.modal-content {
+    padding-bottom: 0!important;
+}
+
+.mg-bottom {
+    margin-bottom: 0!important;
+}
+
+.modal {
+    width: 65%;
+    max-height: 80%;
+}
+
+.modal-footer {
+    padding-top: 0!important;
+}
+
+.mg-top {
+    margin-top: 0!important;
+}
+
+.preloader-wrapper.small {
+    width: 100px;
+    height: 100px;
+    position: absolute;
+    top: 40%;
+    left: 40%;
+}
+
+#profile-button {
+    margin-bottom: -6px;
+}
+
+#search-box {
+    margin-top: 10px;
+}
+
+.card.medium {
+    /* height: 360px; */
+}
+
+.search-icon,.more-icon {
+    color: black!important;
+}
+
+#search-box {
+    background-color: white;
+}
+
+.more-icon {
+    color: black!important;
+}
+
+.ad-image {
+    width: 337px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.ad-view {
+    float: right!important;
+    margin-right: 0!important;
+}
+
+.ad-form-footer {
+    margin-top: -10px;
+}
+
+.modal-footer {
+    background-color: white;
+}
+
+#modal3 {
+    top: 0!important;
+    background: white;
+    width: 100%!important;
+    max-height: 100%!important;
+}
+
+.money {
+    font-size: 36px!important;
+    margin: 0!important;
+}
+
+.seller-div {
+    margin-top: 30px;
+    min-height: 100px;
+    background: #f1f5fc;
+    padding-top: 10px;
+    padding-left: 10px;
+    padding-bottom: 1px;
+    margin-bottom: 15px;
+}
+
+.price-div {
+    margin-top: 20px;
+}
+
+.full-ad-img {
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+}
+
+.img-box {
+    width: 100px;
+    display: none;
+    height: 100px;
+}
+
+.img-box:hover {
+    opacity: 0.6;
+    cursor: pointer;
+}
+
+.full-ad-img-div {
+    height: 560px;
+    margin-bottom: 5px;
+}
+
+.box-images {
+    width: inherit;
+}
+
+.message-or-del-div {
+    position: relative;
+    top: 8px;
+    left: 8px;
+}
+
+#modal3 .modal-content {
+    padding-top: 0!important;
+}
+
+#modal3 hr {
+    margin-bottom: 21px;
+}
+
+#modal1 {
+    top: 5%!important;
+}
+
+.back-btn {
+    float: right;
+    cursor: pointer;
+}
+
+.no-ads {
+    display: block;
+    margin: 0 auto;
+}
+
+#no-ads-text {
+    text-align: center;
+    margin-top: 50px;
+}
+
+@media only screen and (min-width: 993px) {
+    #toast-container {
+        right: 40%!important;
+    }
+}
+
+.msg-icon {
+    margin-right: 5px!important;
+}
+
+#message-box {
+    height: 580px;
+    border: 1px solid #dedede;
+    margin-top: 10px;
+    box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+.inbox-icon {
+    float: left;
+    position: relative;
+    top: 19px;
+}
+
+.delete-btn {
+    background: #de4646
+}
+
+#send-msg-box {
+    position: sticky;
+    top: 600px;
+    max-height: 74px;
+    width: 100%;
+}
+
+.message-input {
+    margin-left: 5px;
+}
+
+.delete-btn:hover {
+    background: #de4646;
+}
+
+#messages {
+    height: 430px;
+    overflow: auto;
+}
+
+.message {
+    clear: both;
+    border: 1px solid;
+    width: 35%;
+    padding: 0 4px 0 4px;
+    background: #ffffff;;
+    margin-left: 5px;
+    margin-top: 5px;
+    border-color: #e7eff5;
+    border-radius: 5px;
+}
+
+.message-left {
+    float: right;
+    margin-right: 5px;
+}
+
+.time-stamp {
+    font-size: 10px;
+    float: right;
+}
+
+.sender-name {
+    margin-top: 0;
+    font-weight: 500;
+    font-style: italic;
+    margin-bottom: 0;
+}
+
+.collection-item {
+    cursor: pointer;
+}
+
+.message-loader {
+    display: block;
+    margin: 0 auto;
+    bottom: 0;
+    top: 30%;
+}

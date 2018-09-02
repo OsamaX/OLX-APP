@@ -1,0 +1,83 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=0.86, minimum-scale=0">
+    <title>OLX Pakistan</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
+
+    <link rel="stylesheet" href="static/css/style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body>
+
+    <nav>
+        <div class="nav-wrapper">
+            <a href="#!" class="brand-logo">OLX</a>
+            <a href="#" data-target="mobile-demo" class="sidenav-trigger">
+                <i class="material-icons">menu</i>
+            </a>
+            <ul class="right hide-on-med-and-down">
+                <li>
+                    <a href="/home">
+                        Home
+                    </a>
+                </li>
+                <li id="logout">
+                    <a data-target="/logout" data-method="POST" data-disabled="true">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <ul class="sidenav" id="mobile-demo">
+        <li>
+            <a class="waves-effect waves-light btn modal-trigger" href="#modal1">
+                <span>Create Ad</span>
+            </a>
+        </li>
+        <li>
+            <a>
+                <i class="material-icons msg-icon">message</i>
+                <span>Messages</span>
+            </a>
+        </li>
+        <li>
+            <a class="modal-trigger" href="#modal2">
+                <i class="material-icons prof-icon">account_circle</i>
+                <span class="user-name">Profile</span>
+            </a>
+        </li>
+        <li>
+            <a href="#">Logout</a>
+        </li>
+    </ul>
+
+    <div class="container">
+        <div class="row">
+            <div class="col s12">
+                <div id="message-box">
+                    <div class="center-align">
+                            <!-- <i class="material-icons inbox-icon">inbox</i> -->
+                            <h5 class="inbox">Inbox</h5>
+                    </div>
+
+                    <ul class="collection">
+                           
+                          </ul>
+                                  
+                </div>
+            </div>
+        </div>
+    </div>
+
+</body>
+
+<script src='https://www.gstatic.com/firebasejs/5.4.1/firebase-app.js'></script>
+<script src="https://www.gstatic.com/firebasejs/5.4.1/firebase-messaging.js"></script>
+<script src='/static/js/firebase-config.js'></script>
+
+<script src='https://code.jquery.com/jquery-3.3.1.min.js'></script>
+<script src='static/js/inbox.js'></script>
+<script src='https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js'></script>

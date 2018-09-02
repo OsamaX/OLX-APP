@@ -1,0 +1,75 @@
+doctype html
+html
+  head
+    meta(name='viewport', content='width=device-width, initial-scale=0.86, minimum-scale=0')
+    title OLX Pakistan
+    link(rel='stylesheet', href='https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css')
+    link(rel='stylesheet', href='../../static/css/style.css')
+    link(href='https://fonts.googleapis.com/icon?family=Material+Icons', rel='stylesheet')
+  body
+    nav
+      .nav-wrapper
+        a.brand-logo(href='#!') OLX
+        a.sidenav-trigger(href='#', data-target='mobile-demo')
+          i.material-icons menu
+        ul.right.hide-on-med-and-down
+          li
+            a(href='/home')
+              | Home
+          li
+            a(href='/message')
+              | Messages
+          li#logout
+            a(data-target='/logout', data-method='POST', data-disabled='true') Logout
+    ul#mobile-demo.sidenav
+      li
+        a.waves-effect.waves-light.btn.modal-trigger(href='#modal1')
+          span Create Ad
+      li
+        a
+          i.material-icons.msg-icon message
+          span Messages
+      li
+        a.modal-trigger(href='#modal2')
+          i.material-icons.prof-icon account_circle
+          span.user-name Profile
+      li
+        a(href='#') Logout
+    .container
+      .row
+        .col.s12
+          #message-box
+            div
+              //- i.material-icons.inbox-icon(style='top: 0') inbox
+              h5.inbox(style='text-align: center') #{user}
+            .preloader-wrapper.big.active.message-loader(style=(loader ? '' : 'display: none;'))
+              .spinner-layer.spinner-blue-only
+                .circle-clipper.left
+                  .circle
+                .gap-patch
+                  .circle
+                .circle-clipper.right
+                  .circle
+            #messages
+            #send-msg-box
+              .row
+                form#message-form.col.s12
+                  .row
+                    .message-input
+                      .input-field.col.s8.offset-s1.m9.offset-m1
+                        input#reciver(type='hidden', value=`${id}`)
+                        input#adId(type='hidden', value=`${adId}`)
+                        input#message.validate(type='text', name='message')
+                        label(for='message') Message
+                      .input-field.col.s1
+                        button.btn-floating.btn-large.waves-effect.waves-light.blue
+                          i.material-icons send
+    script(src='https://www.gstatic.com/firebasejs/5.4.1/firebase-app.js')
+    script(src='https://www.gstatic.com/firebasejs/5.4.1/firebase-database.js')
+    script(src="https://www.gstatic.com/firebasejs/5.4.1/firebase-messaging.js")
+    script(src='../../static/js/firebase-config.js')
+
+    script(src='https://code.jquery.com/jquery-3.3.1.min.js')
+    script(src='../../static/js/utility.js')
+    script(src='../../static/js/messages.js')
+    script(src='https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js')

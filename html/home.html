@@ -1,0 +1,353 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=0.86, minimum-scale=0">
+    <title>OLX Pakistan</title>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
+
+    <link rel="stylesheet" href="static/css/style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body id="home-body">
+
+    <nav>
+        <div class="nav-wrapper">
+            <a href="#!" class="brand-logo">OLX</a>
+            <a href="#" data-target="mobile-demo" class="sidenav-trigger">
+                <i class="material-icons">menu</i>
+            </a>
+            <ul class="right hide-on-med-and-down">
+                <li>
+                    <a class="waves-effect waves-light btn modal-trigger" href="#modal1">
+                        <span>Create Ad</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/message">
+                        <i class="material-icons">message</i>
+                    </a>
+                </li>
+                <li>
+                    <a id="profile-button" class="modal-trigger" href="#modal2">
+                        <i class="material-icons prof-icon left">account_circle</i>
+                        <span class="user-name">Profile</span>
+                    </a>
+                </li>
+                <li id="logout">
+                    <a data-target="/logout" data-method="POST" data-disabled="true">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <ul class="sidenav" id="mobile-demo">
+        <li>
+            <a class="waves-effect waves-light btn modal-trigger" href="#modal1">
+                <span>Create Ad</span>
+            </a>
+        </li>
+        <li>
+            <a>
+                <i class="material-icons msg-icon">message</i>
+                <span>Messages</span>
+            </a>
+        </li>
+        <li>
+            <a class="modal-trigger" href="#modal2">
+                <i class="material-icons prof-icon">account_circle</i>
+                <span class="user-name">Profile</span>
+            </a>
+        </li>
+        <li>
+            <a href="#">Logout</a>
+        </li>
+    </ul>
+
+    <div class="row">
+        <div class="col s12 m6 offset-m3 l4 offset-l4">
+            <nav id="search-box">
+                <div class="nav-wrapper">
+                    <form id="search-form">
+                        <div class="input-field">
+                            <input id="search" type="search" name="search">
+                            <label class="label-icon" for="search">
+                                <i class="material-icons search-icon">search</i>
+                            </label>
+                            <i class="material-icons more-icon" id="cat-icon">expand_more</i>
+                            <span id="cat-wrapper">
+                                <select id="search-select" name="search-cat">
+                                    <option value="all">All</option>
+                                    <option value="electronics">Electronics</option>
+                                    <option value="vehicles">Vehicles</option>
+                                    <option value="mobiles">Mobiles</option>
+                                    <option value="bikes">Bikes</option>
+                                    <option value="jobs">Jobs</option>
+                                    <option value="services">Services</option>
+                                </select>
+                            </span>
+
+                        </div>
+                    </form>
+                </div>
+            </nav>
+        </div>
+
+    </div>
+
+    <div class="row" id="all-ads">
+
+    </div>
+
+    <div class="container">
+        <div class="row">
+
+            <!-- Create AD Modal -->
+            <div id="modal1" class="modal">
+                <div class="preloader-wrapper ad-form-loader small active" style="display: none;">
+                    <div class="spinner-layer spinner-green-only">
+                        <div class="circle-clipper left">
+                            <div class="circle"></div>
+                        </div>
+                        <div class="gap-patch">
+                            <div class="circle"></div>
+                        </div>
+                        <div class="circle-clipper right">
+                            <div class="circle"></div>
+                        </div>
+                    </div>
+                </div>
+                <div id="loader-content">
+                    <div class="modal-content">
+                        <h4>Submit an Ad</h4>
+                        <hr>
+                        <!-- <div class="container"> -->
+                        <div class="row mg-bottom">
+                            <form class="col s12 ad-form">
+                                <div class="row mg-bottom">
+                                    <div class="input-field mg-bottom col s10 m8">
+                                        <i class="material-icons prefix">title</i>
+                                        <input type="text" class="validate" name="title" id="title">
+                                        <label for="title">Ad Title</label>
+                                        <span class="helper-text" id="title-error" data-error="Title can't be blank"></span>
+                                    </div>
+
+                                    <div class="input-field mg-bottom col m8 s12">
+                                        <i class="material-icons prefix">stars</i>
+                                        <select id="category" name="category">
+                                            <option value="" disabled selected>Choose from Category</option>
+                                            <option value="electronics">Electronics</option>
+                                            <option value="vehicles">Vehicles</option>
+                                            <option value="mobiles">Mobiles</option>
+                                            <option value="bikes">Bikes</option>
+                                            <option value="jobs">Jobs</option>
+                                            <option value="services">Services</option>
+                                        </select>
+                                        <label>Category</label>
+                                        <span class="helper-text" id="category-error" data-error="Select a Category"></span>
+                                    </div>
+
+                                    <div class="input-field mg-bottom col s10">
+                                        <i class="material-icons prefix">description</i>
+                                        <textarea id="description" name="description" class="materialize-textarea validate"></textarea>
+                                        <label for="description">Ad Description</label>
+                                        <span class="helper-text" id="description-error" data-error="Description can't be blank"></span>
+                                    </div>
+
+                                    <div class="input-field mg-bottom col s10 m8">
+                                        <i class="material-icons prefix">money</i>
+                                        <input type="text" class="validate" name="price" id="price">
+                                        <label for="price">Price</label>
+                                        <span class="helper-text" id="price-error" data-error="Price required"></span>
+                                    </div>
+
+                                    <div class="input-field mg-bottom col s12 m6">
+                                        <div class="file-field input-field mg-top">
+                                            <div class="btn">
+                                                <span>File</span>
+                                                <input type="file" multiple>
+                                            </div>
+                                            <div class="file-path-wrapper">
+                                                <input class="file-path validate" name="images" id="images" type="text" placeholder="You can upload upto 3 photos">
+                                                <span class="helper-text" id="images-error" data-error="Upload atleast one photo"></span>
+                                            </div>
+                                        </div>
+                                    </div>
+
+                                </div>
+                        </div>
+                        <!-- </div> -->
+                    </div>
+                    <div class="modal-footer ad-form-footer">
+                        <button class="btn waves-effect waves-light btn-small cancel-btn" type="button" name="action">Cancel
+                            <i class="material-icons right">cancel</i>
+                        </button>
+                        <button class="btn waves-effect waves-light btn-small" type="submit" name="action">Submit
+                            <i class="material-icons right">send</i>
+                        </button>
+                    </div>
+                </div>
+                </form>
+            </div>
+        </div>
+    </div>
+
+    <!-- Profile Modal -->
+    <div id="modal2" class="modal">
+        <div class="modal-content">
+            <h4>Profile</h4>
+            <hr>
+            <!-- <div class="container"> -->
+            <div class="row mg-bottom">
+                <form class="col s12 profile-form">
+                    <div class="row mg-bottom">
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix">perm_identity</i>
+                            <input id="name" value="name" name="name" type="text" class="validate active" maxlength="15">
+                            <label for="name">Full Name</label>
+                            <span class="helper-text" id="name-error" data-error="Name can't be blank"></span>
+                        </div>
+                        <!-- </div>
+                        <div class="row"> -->
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix">phone</i>
+                            <input id="phone" value="0" name="phone" type="number" class="validate active">
+                            <label for="phone">Phone Number</label>
+                            <span class="helper-text" id="phone-error" data-error="Invalid number"></span>
+                        </div>
+                        <!-- </div>
+                        <div class="row"> -->
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix">lock</i>
+                            <input id="city" value="city" name="city" type="text" class="validate active">
+                            <label for="city">City</label>
+                            <span class="helper-text" id="city-error" data-error="City can't be blank"></span>
+                        </div>
+                        <!-- </div>
+                        <div class="row"> -->
+                        <div class="input-field col s12">
+                            <i class="material-icons prefix">lock</i>
+                            <input id="province" value="province" name="province" type="text" class="validate active">
+                            <label for="province">Province</label>
+                            <span class="helper-text" id="province-error" data-error="Province can't be blank"></span>
+                        </div>
+                    </div>
+
+
+
+            </div>
+            <!-- </div> -->
+        </div>
+        <div class="modal-footer">
+            <button class="btn waves-effect waves-light btn-small cancel-btn" type="submit" name="action">Cancel
+                <i class="material-icons right">cancel</i>
+            </button>
+            <button class="btn waves-effect waves-light btn-small btn-submit" type="submit" name="action">Submit
+                <i class="material-icons right">send</i>
+            </button>
+        </div>
+        </form>
+    </div>
+    </div>
+
+    <!-- FULL AD MODAL -->
+    <div id="modal3" class="modal">
+        <div class="modal-content">
+            <i class="material-icons back-btn">arrow_back</i>
+            <h5 id="ad-title">Selling my iphone X 128GB Condition 10/10</h5>
+            <hr>
+            <div class="row">
+
+                <div class="col s12 m7">
+                    <div class="full-ad-img full-ad-img-div" >
+                    </div>
+
+                    <div id="box-0" class="img-box full-ad-img" >
+                    </div>
+
+                    <div id="box-1" class="img-box full-ad-img" >
+                    </div>
+
+                    <div id="box-2" class="img-box full-ad-img" >
+                    </div>
+                </div>
+
+                <div class="col s12 m5">
+                    <div class="price-div">
+                            <i class="material-icons left money">attach_money</i>    
+                            <h4 id="ad-price">Price: </h4>
+                    </div>
+
+                    <div class="message-or-del-div">
+
+                    </div>
+
+                    <div class="seller-div">
+                        <i class="material-icons left seller-ico">
+                                account_circle
+                            </i>
+                        <p style="margin-top: 0;" id="seller-name"></p>
+
+                        <i class="material-icons left seller-ico">
+                                phone
+                            </i>
+                        <p id="seller-num"></p>
+
+                        <i class="material-icons left seller-ico">
+                                location_city
+                            </i>
+                        <p id="seller-city"></p>
+                    </div>
+
+                    <p id="desc">
+                            
+                    </p>
+
+                </div>
+
+            </div>
+        </div>
+
+        <div class="modal-footer">
+            <a href="#" class="modal-close waves-effect waves-green btn-flat">Close</a>
+        </div>
+    </div>
+
+    <div class="container">
+        <div class="row">
+            <div class="col s10 offset-s2 m8 offset-m4">
+                <ul class="pagination" style="display: none;">
+                    <li class="disabled">
+                        <a href="#!">
+                            <i class="material-icons">chevron_left</i>
+                        </a>
+                    </li>
+                    <span id="here"></span>
+                    <li>
+                        <a>
+                            <i class="material-icons">chevron_right</i>
+                        </a>
+                    </li>
+                </ul>
+            </div>
+        </div>
+    </div>
+
+</body>
+<script src='https://www.gstatic.com/firebasejs/5.4.1/firebase-app.js'></script>
+<script src="https://www.gstatic.com/firebasejs/5.4.1/firebase-messaging.js"></script>
+<script src='/static/js/firebase-config.js'></script>
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="/static/js/utility.js"></script>
+<script src="static/js/home.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $('.sidenav').sidenav();
+    });
+</script>
+
+</html>
