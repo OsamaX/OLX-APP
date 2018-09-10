@@ -15,8 +15,8 @@ const app = express()
 app.set("db_user", process.env.DB_USER || "osamaavvan")
 app.set("db_pass", process.env.DB_PASS || "DB796096")
 
-// mongoose.connect("mongodb://localhost:27017/olx", { useNewUrlParser: true })
-mongoose.connect(`mongodb://${app.get("db_user")}:${app.get("db_pass")}@ds141902.mlab.com:41902/olx`, { useNewUrlParser: true })
+mongoose.connect("mongodb://localhost:27017/olx", { useNewUrlParser: true })
+// mongoose.connect(`mongodb://${app.get("db_user")}:${app.get("db_pass")}@ds141902.mlab.com:41902/olx`, { useNewUrlParser: true })
 const db = mongoose.connection
 
 db.on("error", console.error.bind(console, 'DB connection error'))
