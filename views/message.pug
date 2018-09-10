@@ -15,26 +15,25 @@ html
         ul.right.hide-on-med-and-down
           li
             a(href='/home')
-              | Home
+              i.material-icons.prof-icon.left home
+              span Home
           li
             a(href='/message')
-              | Messages
+              i.material-icons message
           li#logout
-            a(data-target='/logout', data-method='POST', data-disabled='true') Logout
+            a(href="#" data-target='/logout', data-method='POST', data-disabled='true') Logout
     ul#mobile-demo.sidenav
       li
-        a.waves-effect.waves-light.btn.modal-trigger(href='#modal1')
-          span Create Ad
+        a(href="/home")
+          i.material-icons.msg-icon home
+          span Home
       li
-        a
+        a(href="/message")
           i.material-icons.msg-icon message
           span Messages
-      li
-        a.modal-trigger(href='#modal2')
-          i.material-icons.prof-icon account_circle
-          span.user-name Profile
-      li
-        a(href='#') Logout
+      li#logout
+        a(href="#" data-target='/logout', data-method='POST', data-disabled='true') Logout
+
     .container
       .row
         .col.s12
@@ -51,14 +50,13 @@ html
                 .circle-clipper.right
                   .circle
             #messages
-            #send-msg-box
+            #send-msg-box(style=(loader ? 'display: none;' : ''))
               .row
                 form#message-form.col.s12
                   .row
                     .message-input
                       .input-field.col.s8.offset-s1.m9.offset-m1
                         input#reciver(type='hidden', value=`${id}`)
-                        input#adId(type='hidden', value=`${adId}`)
                         input#message.validate(type='text', name='message')
                         label(for='message') Message
                       .input-field.col.s1
@@ -73,3 +71,29 @@ html
     script(src='../../static/js/utility.js')
     script(src='../../static/js/messages.js')
     script(src='https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js')
+    unless loader
+      script.
+        (function saveToInbox() {
+          firebase.database().ref(`/messages/${chatId}`).once('child_added').then(function(snapshot) {
+
+              if (snapshot.val()) {
+
+                  console.log("inside...")
+                  let user = {
+                      uid: location.pathname.split('/')[2],
+                  }
+              
+                  fetch(`/user/message`, {
+                      method: "POST",
+                      body: JSON.stringify(user),
+                      headers: {
+                          "Content-Type": "application/json"
+                      }
+                  })
+                  .then(res => res.json())
+                  .then(res => console.log(res))
+                  .catch(err => console.log(err))
+              } 
+
+            })
+        })()

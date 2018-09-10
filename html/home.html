@@ -35,6 +35,16 @@
                         <span class="user-name">Profile</span>
                     </a>
                 </li>
+                <li>
+                    <a href="/myads">
+                        <span>My</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/offline">
+                        <span>Offline</span>
+                    </a>
+                </li>
                 <li id="logout">
                     <a data-target="/logout" data-method="POST" data-disabled="true">Logout</a>
                 </li>
@@ -49,19 +59,30 @@
             </a>
         </li>
         <li>
-            <a>
-                <i class="material-icons msg-icon">message</i>
-                <span>Messages</span>
-            </a>
-        </li>
-        <li>
             <a class="modal-trigger" href="#modal2">
                 <i class="material-icons prof-icon">account_circle</i>
                 <span class="user-name">Profile</span>
             </a>
         </li>
         <li>
-            <a href="#">Logout</a>
+            <a href="/message">
+                <i class="material-icons msg-icon">message</i>
+                <span>Messages</span>
+            </a>
+        </li>
+        <li>
+            <a href="/myads">
+                <span>My Ads</span>
+            </a>
+        </li>
+        <li>
+            <a href="/offline">
+                <span>Offline</span>
+            </a>
+        </li>
+
+        <li id="logout">
+            <a href="#" data-target="/logout" data-method="POST" data-disabled="true">Logout</a>
         </li>
     </ul>
 
@@ -105,7 +126,7 @@
 
             <!-- Create AD Modal -->
             <div id="modal1" class="modal">
-                <div class="preloader-wrapper ad-form-loader small active" style="display: none;">
+                <!-- <div class="preloader-wrapper ad-form-loader small active" style="display: none;">
                     <div class="spinner-layer spinner-green-only">
                         <div class="circle-clipper left">
                             <div class="circle"></div>
@@ -117,7 +138,7 @@
                             <div class="circle"></div>
                         </div>
                     </div>
-                </div>
+                </div> -->
                 <div id="loader-content">
                     <div class="modal-content">
                         <h4>Submit an Ad</h4>
@@ -253,30 +274,43 @@
 
     <!-- FULL AD MODAL -->
     <div id="modal3" class="modal">
-        <div class="modal-content">
+        <div class="preloader-wrapper full-ad-loader active">
+            <div class="spinner-layer spinner-green-only">
+                <div class="circle-clipper left">
+                    <div class="circle"></div>
+                </div>
+                <div class="gap-patch">
+                    <div class="circle"></div>
+                </div>
+                <div class="circle-clipper right">
+                    <div class="circle"></div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-content full-ad-content">
             <i class="material-icons back-btn">arrow_back</i>
             <h5 id="ad-title">Selling my iphone X 128GB Condition 10/10</h5>
             <hr>
             <div class="row">
 
                 <div class="col s12 m7">
-                    <div class="full-ad-img full-ad-img-div" >
+                    <div class="full-ad-img full-ad-img-div">
                     </div>
 
-                    <div id="box-0" class="img-box full-ad-img" >
+                    <div id="box-0" class="img-box full-ad-img">
                     </div>
 
-                    <div id="box-1" class="img-box full-ad-img" >
+                    <div id="box-1" class="img-box full-ad-img">
                     </div>
 
-                    <div id="box-2" class="img-box full-ad-img" >
+                    <div id="box-2" class="img-box full-ad-img">
                     </div>
                 </div>
 
                 <div class="col s12 m5">
                     <div class="price-div">
-                            <i class="material-icons left money">attach_money</i>    
-                            <h4 id="ad-price">Price: </h4>
+                        <i class="material-icons left money">attach_money</i>
+                        <h4 id="ad-price">Price: </h4>
                     </div>
 
                     <div class="message-or-del-div">
@@ -285,23 +319,23 @@
 
                     <div class="seller-div">
                         <i class="material-icons left seller-ico">
-                                account_circle
-                            </i>
+                            account_circle
+                        </i>
                         <p style="margin-top: 0;" id="seller-name"></p>
 
                         <i class="material-icons left seller-ico">
-                                phone
-                            </i>
+                            phone
+                        </i>
                         <p id="seller-num"></p>
 
                         <i class="material-icons left seller-ico">
-                                location_city
-                            </i>
+                            location_city
+                        </i>
                         <p id="seller-city"></p>
                     </div>
 
                     <p id="desc">
-                            
+
                     </p>
 
                 </div>
@@ -335,19 +369,15 @@
     </div>
 
 </body>
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
+<script src="/static/js/utility.js"></script>
+<script src="/static/js/adUtility.js"></script>
+<script src="static/js/home.js"></script>
 <script src='https://www.gstatic.com/firebasejs/5.4.1/firebase-app.js'></script>
 <script src="https://www.gstatic.com/firebasejs/5.4.1/firebase-messaging.js"></script>
+
 <script src='/static/js/firebase-config.js'></script>
-
-<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
-<script src="/static/js/utility.js"></script>
-<script src="static/js/home.js"></script>
-<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
-
-<script>
-    $(document).ready(function () {
-        $('.sidenav').sidenav();
-    });
-</script>
+<script src="/static/js/index.js"></script>
 
 </html>

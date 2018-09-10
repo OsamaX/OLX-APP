@@ -239,6 +239,7 @@ nav .sidenav-trigger {
 
 @media only screen and (min-width: 993px) {
     #toast-container {
+        top: 0!important;
         right: 40%!important;
     }
 }
@@ -247,11 +248,15 @@ nav .sidenav-trigger {
     margin-right: 5px!important;
 }
 
-#message-box {
+#message-box, #inbox-box {
     height: 580px;
     border: 1px solid #dedede;
     margin-top: 10px;
     box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.2), 0 6px 20px 0 rgba(0, 0, 0, 0.19);
+}
+
+#inbox-box {
+    overflow: auto;
 }
 
 .inbox-icon {
@@ -322,4 +327,19 @@ nav .sidenav-trigger {
     margin: 0 auto;
     bottom: 0;
     top: 30%;
+}
+
+.full-ad-content{
+    visibility: hidden;
+}
+
+.full-ad-loader {
+    margin: 0 auto;
+    display: block;
+    width: 100px;
+    height: 100px;
+}
+
+#modal3 {
+    overflow: hidden;
 }

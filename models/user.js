@@ -28,7 +28,9 @@ const userSchema = mongoose.Schema({
     phone: { type: String, required: [true, "Phone Number required"], minlength: [11, "Invalid Phone Number"], maxlength: [11, "Invalid Phone Number"], set: phone => phone.toString() },
     city: { type: String, required: [true, "City can't be blank"], default: " ", trim: true },
     province: { type: String, required: [true, "Province can't be blank"], default: " ", trim: true },
-    messages: { type: [mongoose.Schema.Types.Mixed] }
+    messages: { type: [mongoose.Schema.Types.Mixed] },
+    user_token: String,
+    active: Boolean
 }, {
       toJSON: {
         transform: function (doc, ret) {

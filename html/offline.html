@@ -1,0 +1,154 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+    <title>OLX Pakistan</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/css/materialize.min.css">
+
+    <link rel="stylesheet" href="/static/css/style.css">
+    <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
+</head>
+
+<body>
+
+    <nav>
+        <div class="nav-wrapper">
+            <a href="#!" class="brand-logo">OLX</a>
+            <a href="#" data-target="mobile-demo" class="sidenav-trigger">
+                <i class="material-icons">menu</i>
+            </a>
+            <ul class="right hide-on-med-and-down">
+                <li>
+                    <a href="/home">
+                        <i class="material-icons prof-icon left">home</i>
+                        <span>Home</span>
+                    </a>
+                </li>
+                <li>
+                    <a href="/message">
+                        <i class="material-icons">message</i>
+                    </a>
+                </li>
+                <li id="logout">
+                    <a data-target="/logout" data-method="POST" data-disabled="true">Logout</a>
+                </li>
+            </ul>
+        </div>
+    </nav>
+
+    <ul class="sidenav" id="mobile-demo">
+        <li>
+            <a href="/home">
+                <i class="material-icons prof-icon left">home</i>
+                <span>Home</span>
+            </a>
+        </li>
+        <li>
+            <a href="/message">
+                <i class="material-icons msg-icon">message</i>
+                <span>Messages</span>
+            </a>
+        </li>
+        <li id="logout">
+            <a href="#" data-target="/logout" data-method="POST" data-disabled="true">Logout</a>
+        </li>
+    </ul>
+
+    <div class="row" id="all-ads">
+
+    </div>
+
+
+    <!-- FULL AD MODAL -->
+    <div id="modal3" class="modal">
+        <div class="preloader-wrapper full-ad-loader active">
+            <div class="spinner-layer spinner-green-only">
+                <div class="circle-clipper left">
+                    <div class="circle"></div>
+                </div>
+                <div class="gap-patch">
+                    <div class="circle"></div>
+                </div>
+                <div class="circle-clipper right">
+                    <div class="circle"></div>
+                </div>
+            </div>
+        </div>
+        <div class="modal-content full-ad-content">
+            <i class="material-icons back-btn">arrow_back</i>
+            <h5 id="ad-title">Selling my iphone X 128GB Condition 10/10</h5>
+            <hr>
+            <div class="row">
+
+                <div class="col s12 m7">
+                    <div class="full-ad-img full-ad-img-div">
+                    </div>
+
+                    <div id="box-0" class="img-box full-ad-img">
+                    </div>
+
+                    <div id="box-1" class="img-box full-ad-img">
+                    </div>
+
+                    <div id="box-2" class="img-box full-ad-img">
+                    </div>
+                </div>
+
+                <div class="col s12 m5">
+                    <div class="price-div">
+                        <i class="material-icons left money">attach_money</i>
+                        <h4 id="ad-price">Price: </h4>
+                    </div>
+
+                    <div class="message-or-del-div">
+
+                    </div>
+
+                    <div class="seller-div">
+                        <i class="material-icons left seller-ico">
+                            account_circle
+                        </i>
+                        <p style="margin-top: 0;" id="seller-name"></p>
+
+                        <i class="material-icons left seller-ico">
+                            phone
+                        </i>
+                        <p id="seller-num"></p>
+
+                        <i class="material-icons left seller-ico">
+                            location_city
+                        </i>
+                        <p id="seller-city"></p>
+                    </div>
+
+                    <p id="desc">
+
+                    </p>
+
+                </div>
+
+            </div>
+        </div>
+
+        <div class="modal-footer">
+            <a href="#" class="modal-close waves-effect waves-green btn-flat">Close</a>
+        </div>
+    </div>
+
+</body>
+
+<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+<script src="/static/js/utility.js"></script>
+<script src="/static/js/adUtility.js"></script>
+<script src="/static/js/offline.js"></script>
+
+<script src="https://cdnjs.cloudflare.com/ajax/libs/materialize/1.0.0-rc.2/js/materialize.min.js"></script>
+
+<script>
+    $(document).ready(function () {
+        $('.sidenav').sidenav();
+    });
+</script>
+
+</html>

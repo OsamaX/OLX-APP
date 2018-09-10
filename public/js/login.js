@@ -33,6 +33,7 @@ $(document).ready(function () {
             .catch(err => {
                 showLoader(false)
                 console.log(err)
+                M.Toast({html: "No internet Connection"})
             })
         }
     })

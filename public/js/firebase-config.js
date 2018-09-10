@@ -19,13 +19,23 @@
     return messaging.getToken()
   })
   .then(function (token) {
-    console.log("token ", token)
+    sendToServer(token)
   })
   .catch(function (err) {
     console.log("Notification permission Denied", err)
   })
 
   messaging.onMessage(payload => {
-    console.log("onMessage: ", payload)
+    if (location.pathname !== payload.notification.image) {
+        M.toast({html: payload.notification.title})
+    }
   })
 
+  messaging.onTokenRefresh(function() {
+    messaging.getToken().then(function(refreshedToken) {
+      console.log('Token refreshed.', refreshedToken);
+
+    }).catch(function(err) {
+      console.log('Unable to retrieve refreshed token ', err);
+    });
+  })

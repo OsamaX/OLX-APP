@@ -8,34 +8,6 @@ let reciverId = $("#reciver").val()
 
 let chatId = parseInt(senderId) + parseInt(reciverId)
 
-function saveToInbox() {
-    firebase.database().ref(`/messages/${chatId}`).once('child_added').then(function(snapshot) {
-
-        if (snapshot.val()) {
-
-            console.log("inside...")
-            let user = {
-                uid: location.pathname.split('/')[2],
-                adId: $("#adId").val()
-            }
-        
-            fetch(`/user/message`, {
-                method: "POST",
-                body: JSON.stringify(user),
-                headers: {
-                    "Content-Type": "application/json"
-                }
-            })
-            .then(res => res.json())
-            .then(res => console.log(res))
-            .catch(err => console.log(err))
-        } else {
-            showLoader(false)
-        }
-
-      })
-}
-
 function sendMessage(msg) {
 
     return db.ref(`/messages/${chatId}`).push({
@@ -43,6 +15,9 @@ function sendMessage(msg) {
         text: msg,
         time: new Date().toLocaleTimeString(),
         id: uid
+    })
+    .then(sent => {
+        sendPushRequest()
     })
     .catch(err =>  console.log("Error ", err))
 }
@@ -58,6 +33,7 @@ function displayMessage() {
         </div>`
 
         $("#messages").append(html)
+        scrollToBottom()
         showLoader(false)
     })
 }
@@ -83,21 +59,4 @@ $("#message-form").on("submit", function(e) {
 
 })
 
-saveToInbox()
 
-/*------------------------------
-    LOGOUT
---------------------------------*/
-$("#logout").on("click", function (e) {
-    fetch("/logout", {
-        method: "POST"
-    })
-        .then(res => res.json())
-        .then(res => {
-            if (res.success) {
-                localStorage.removeItem("u_info")
-                return window.location.replace("/")
-            }
-        })
-        .catch(err => console.log(err))
-})
